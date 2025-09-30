@@ -1,5 +1,7 @@
 #include "WebUI.h"
 #include <WiFi.h>
+#include "PubSubClient.h"
+
 
 WebUI::WebUI(WebServer &server) : _server(server) {}
 
@@ -9,6 +11,34 @@ void WebUI::begin()
                { handleRoot(); });
     _server.begin();
     Serial.println("🌐 Web server started, open http://192.168.4.1/");
+
+    _server.on("/setMQTT", [this]()
+               {
+    if (_server.hasArg("mqtt")) {
+        String newServer = _server.arg("mqtt");
+        Serial.println("🔄 New MQTT server: " + newServer);
+
+        extern PubSubClient client;
+
+        // 1) Ngắt kết nối cũ
+        if (client.connected()) {
+            client.disconnect();
+            Serial.println("MQTT disconnected from old server");
+        }
+
+        // 2) Cập nhật server mới
+        client.setServer(newServer.c_str(), 1883);
+
+        // 3) Kết nối lại ngay
+        if (client.connect("ESP32S3_Client")) {
+            client.subscribe("esp32/led");
+            Serial.println("✅ Connected to new MQTT server: " + newServer);
+            _server.send(200, "text/html", "<h3>Connected to " + newServer + "</h3><a href='/'>Back</a>");
+        } else {
+            Serial.println("❌ Failed to connect new server");
+            _server.send(200, "text/html", "<h3>Failed to connect " + newServer + "</h3><a href='/'>Back</a>");
+        }
+    } });
 }
 
 void WebUI::handleClient()
@@ -58,6 +88,12 @@ String WebUI::getClientTable()
     html += "</table>";
     html += "<p>Refresh page to update list</p>";
     html += "</body></html>";
+
+    html += "<h2>MQTT Config</h2>";
+    html += "<form action='/setMQTT' method='GET'>";
+    html += "MQTT Server: <input type='text' name='mqtt' placeholder='IP or hostname'>";
+    html += "<input type='submit' value='Save'>";
+    html += "</form>";
 
     return html;
 }

@@ -36,54 +36,40 @@ void turnLeft()
 {
     led_rgb1.setPixelColor(2, led_rgb1.Color(255, 0, 0));
     led_rgb1.show();
-    vTaskDelay(100/portTICK_PERIOD_MS);
+    //vTaskDelay(100/portTICK_PERIOD_MS);
+    delay(200);
     led_rgb1.setPixelColor(1, led_rgb1.Color(255, 0, 0));
     led_rgb1.setPixelColor(3, led_rgb1.Color(255, 0, 0));
     led_rgb1.show();
-    vTaskDelay(100/portTICK_PERIOD_MS);
+    //vTaskDelay(100/portTICK_PERIOD_MS);
+    delay(200);
     led_rgb1.setPixelColor(0, led_rgb1.Color(255, 0, 0));
     led_rgb1.show();
-    vTaskDelay(100/portTICK_PERIOD_MS);
+    delay(200);
+    //vTaskDelay(100/portTICK_PERIOD_MS);
 }
+
+/* bool isStop = false;
 
 void runTurn(const char *dir)
 {
     if (strcmp(dir, "Left") == 0)
     {
         // hiệu ứng Left
-        led_rgb1.clear();
-        led_rgb1.setPixelColor(2, led_rgb1.Color(255, 0, 0));
-        led_rgb1.show();
-        vTaskDelay(100 / portTICK_PERIOD_MS);
-
-        led_rgb1.clear();
-        led_rgb1.setPixelColor(1, led_rgb1.Color(255, 0, 0));
-        led_rgb1.setPixelColor(3, led_rgb1.Color(255, 0, 0));
-        led_rgb1.show();
-        vTaskDelay(100 / portTICK_PERIOD_MS);
-
-        led_rgb1.clear();
-        led_rgb1.setPixelColor(0, led_rgb1.Color(255, 0, 0));
-        led_rgb1.show();
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        while(isStop == 0)
+        {
+            turnLeft();
+            turnOffLedRGB();
+            delay(100);
+            
+        }
+        //vTaskDelay(100 / portTICK_PERIOD_MS);
     }
-    else if (strcmp(dir, "Right") == 0)
+    else if (strcmp(dir, "Stop") == 0)
     {
         // hiệu ứng Right
-        led_rgb1.clear();
-        led_rgb1.setPixelColor(0, led_rgb1.Color(0, 0, 255));
-        led_rgb1.show();
-        vTaskDelay(100 / portTICK_PERIOD_MS);
-
-        led_rgb1.clear();
-        led_rgb1.setPixelColor(1, led_rgb1.Color(0, 0, 255));
-        led_rgb1.setPixelColor(3, led_rgb1.Color(0, 0, 255));
-        led_rgb1.show();
-        vTaskDelay(100 / portTICK_PERIOD_MS);
-
-        led_rgb1.clear();
-        led_rgb1.setPixelColor(2, led_rgb1.Color(0, 0, 255));
-        led_rgb1.show();
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        isStop = true;
+        turnOffLedRGB();
     }
-}
+} */
+

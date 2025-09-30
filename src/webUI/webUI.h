@@ -5,7 +5,8 @@
 #include "esp_wifi.h"
 #include "esp_netif.h"
 
-
+extern volatile bool needReconnect;
+extern String newMqttServer;
 class WebUI
 {
 public:

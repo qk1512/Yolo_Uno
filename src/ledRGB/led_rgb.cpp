@@ -8,22 +8,22 @@ Adafruit_NeoPixel led_rgb4(NUM_PIXELS, LED_4, NEO_GRB + NEO_KHZ800);
 void initLedRGB()
 {
     led_rgb1.begin();
-    led_rgb1.setBrightness(10);
+    led_rgb1.setBrightness(255);
     led_rgb1.clear(); // clear để tắt ban đầu
     led_rgb1.show();
 
     led_rgb2.begin();
-    led_rgb2.setBrightness(10);
+    led_rgb2.setBrightness(255);
     led_rgb2.clear(); // clear để tắt ban đầu
     led_rgb2.show();
 
     led_rgb3.begin();
-    led_rgb3.setBrightness(10);
+    led_rgb3.setBrightness(255);
     led_rgb3.clear(); // clear để tắt ban đầu
     led_rgb3.show();
 
     led_rgb4.begin();
-    led_rgb4.setBrightness(10);
+    led_rgb4.setBrightness(255);
     led_rgb4.clear(); // clear để tắt ban đầu
     led_rgb4.show();
 }
@@ -66,8 +66,8 @@ void turnOffLedRGB(int index)
 
 void turnLeft()
 {
-    led_rgb1.setBrightness(10);
-    led_rgb2.setBrightness(10);
+    led_rgb1.setBrightness(255);
+    led_rgb2.setBrightness(255);
 
     led_rgb1.setPixelColor(2, led_rgb1.Color(255, 0, 0));
     led_rgb2.setPixelColor(2, led_rgb2.Color(255, 0, 0));
@@ -92,8 +92,8 @@ void turnLeft()
 
 void turnRight()
 {
-    led_rgb3.setBrightness(10);
-    led_rgb4.setBrightness(10);
+    led_rgb3.setBrightness(255);
+    led_rgb4.setBrightness(255);
 
     led_rgb3.setPixelColor(2, led_rgb3.Color(255, 0, 0));
     led_rgb4.setPixelColor(2, led_rgb4.Color(255, 0, 0));
@@ -138,10 +138,10 @@ void turnStop()
 
 void turnForward()
 {
-    led_rgb1.setBrightness(10);
-    led_rgb2.setBrightness(10);
-    led_rgb3.setBrightness(10);
-    led_rgb4.setBrightness(10);
+    led_rgb1.setBrightness(255);
+    led_rgb2.setBrightness(255);
+    led_rgb3.setBrightness(255);
+    led_rgb4.setBrightness(255);
 
     led_rgb1.setPixelColor(0, led_rgb1.Color(0, 255, 0));
     led_rgb1.setPixelColor(2, led_rgb1.Color(0, 255, 0));
@@ -183,10 +183,10 @@ void turnForward()
 
 void turnBack()
 {
-    led_rgb1.setBrightness(10);
-    led_rgb2.setBrightness(10);
-    led_rgb3.setBrightness(10);
-    led_rgb4.setBrightness(10);
+    led_rgb1.setBrightness(255);
+    led_rgb2.setBrightness(255);
+    led_rgb3.setBrightness(255);
+    led_rgb4.setBrightness(255);
     for(int i = 0; i < 4; i++)
     {   
         if(1)
@@ -223,10 +223,10 @@ void clearLed()
 
 void turnAnimation()
 {
-    led_rgb1.setBrightness(10);
-    led_rgb2.setBrightness(10);
-    led_rgb3.setBrightness(10);
-    led_rgb4.setBrightness(10);
+    led_rgb1.setBrightness(255);
+    led_rgb2.setBrightness(255);
+    led_rgb3.setBrightness(255);
+    led_rgb4.setBrightness(255);
 
     for (int i = 0; i < 4; i++)
     {

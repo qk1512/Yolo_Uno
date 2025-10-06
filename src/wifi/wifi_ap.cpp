@@ -1,4 +1,4 @@
-#include "wifi_ap.h"
+/* #include "wifi_ap.h"
 
 MyAP::MyAP(const char *ssid, const char *password,
            IPAddress localIP, IPAddress gateway, IPAddress subnet)
@@ -72,3 +72,4 @@ void MyAP::printClients()
         Serial.println("No clients connected.");
     }
 }
+ */

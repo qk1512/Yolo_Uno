@@ -3,12 +3,11 @@
 #include "./ledRGB/led_rgb.h"
 #include "./mqtt/mqtt.h"
 // Thông tin WiFi router
-const char *ssid = "QUANG KHANH_2.4G";
-const char *password = "15122002";
+const char *ssid = "ACLAB3";
+const char *password = "ACLAB2023";
 
 // IP của PC (chạy Mosquitto broker)
-const char *mqtt_server = "192.168.1.143";
-
+const char *mqtt_server = "192.168.4.1";
 
 void checkSerialBackup()
 {
@@ -22,11 +21,11 @@ void checkSerialBackup()
       LedIndexState = 2;
     else if (cmd == "Forward")
       LedIndexState = 3;
-    else if (cmd == "Back")
+    else if (cmd == "Backward")
       LedIndexState = 4;
     else if (cmd == "Stop")
       LedIndexState = 5;
-    else if (cmd == "Animation")
+    else if (cmd == "Animation" || cmd == "RotateRight" || cmd == "RotateLeft")
       LedIndexState = 6;
     else if (cmd == "Clear")
       LedIndexState = 7;
@@ -79,7 +78,7 @@ void UsbSerialTask(void *pv)
           line += (char)ch;
       }
     }
-    vTaskDelay(pdMS_TO_TICKS(5)); // nhường CPU
+    vTaskDelay(pdMS_TO_TICKS(5)); 
   }
 }
 

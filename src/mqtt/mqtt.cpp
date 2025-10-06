@@ -102,7 +102,7 @@ bool setStateFromString(const String &cmd)
         setStateThreadSafe(3);
         return true;
     }
-    else if (cmd.equalsIgnoreCase("Back"))
+    else if (cmd.equalsIgnoreCase("Backward"))
     {
         setStateThreadSafe(4);
         return true;
@@ -112,7 +112,7 @@ bool setStateFromString(const String &cmd)
         setStateThreadSafe(5);
         return true;
     }
-    else if (cmd.equalsIgnoreCase("Animation"))
+    else if (cmd.equalsIgnoreCase("Animation") || cmd.equalsIgnoreCase("RotateLeft") || cmd.equalsIgnoreCase("RotateRight"))
     {
         setStateThreadSafe(6);
         return true;

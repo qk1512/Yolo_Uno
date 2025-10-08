@@ -1,6 +1,6 @@
 #include <WiFi.h>
 #include <esp_now.h>
-
+//kaskdakakaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 // Địa chỉ MAC của ESP32 nhận
 uint8_t receiverMAC[] = {0xDC, 0x54, 0x75, 0xCE, 0xAC, 0xD8};
 
